@@ -6,9 +6,9 @@ use warnings;
 package Sorter;
 
 sub new {
-  	my $class = shift;
+		my $class = shift;
 		my $list = [];
-		return bless $lst, $class;
+		return bless $list, $class;
 }
 
 # Mutator function to set lst
@@ -64,8 +64,8 @@ sub quick_sort {
 				}
 
 				# if the value needs not be swapped, we move on.
-				unless ( $swap_left ){ $smaller_pos++};
-				unless ( $swap_right ){ $larger_pos--};
+				$smaller_pos++ unless $swap_left;
+				$larger_pos-- unless $swap_right;
 		}
 
 		# pivot needs to be inserted at the appropriate pos.
@@ -85,7 +85,7 @@ sub quick_sort {
 sub swap{
 		my ($list, $i, $j) = @_;
 		my $temp = $list->[$i];
-		$lst->[$i] = $list->[$j];
+		$list->[$i] = $list->[$j];
 		$list->[$j] = $temp;
 }
 
